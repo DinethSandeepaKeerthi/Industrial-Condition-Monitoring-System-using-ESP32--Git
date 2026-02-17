@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "dineth sandeepa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 28.8, "left": 4.84, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 23.02, "left": 309.52, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 137,
+      "left": 277.8,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:22", "imu1:SCL", "green", [ "h28.8", "v-67.2", "h220.72" ] ],
+    [ "esp:21", "imu1:SDA", "green", [ "h38.4", "v-86.4", "h201.52" ] ],
+    [ "esp:GND.3", "imu1:GND", "black", [ "h192", "v-115.2", "h76.72" ] ],
+    [ "esp:5V", "imu1:VCC", "red", [ "h-38.25", "v-268.8", "h412.8", "v67.2" ] ],
+    [ "esp:17", "esp:RX", "green", [ "h57.6", "v-57.6" ] ],
+    [ "esp:18", "esp:TX", "green", [ "h57.6", "v-48" ] ],
+    [ "esp:GND.2", "esp:GND.3", "black", [ "h19.2", "v57.6" ] ],
+    [ "esp:GND.1", "esp:GND.3", "black", [ "h-19.05", "v67.2", "h134.4", "v-134.4" ] ],
+    [ "ntc1:VCC", "esp:3V3", "red", [ "h28.8", "v-201.6", "h-441.6", "v86.4" ] ],
+    [ "ntc1:GND", "esp:GND.3", "black", [ "h19.2", "v-48" ] ],
+    [ "esp:34", "ntc1:OUT", "green", [ "h-19.05", "v-105.6", "h460.8", "v192.1" ] ]
+  ],
+  "dependencies": {}
+}
